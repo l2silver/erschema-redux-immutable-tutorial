@@ -20,7 +20,7 @@ class MainSection extends Component {
   handleClearCompleted() {
     const atLeastOneCompleted = this.props.todos.some(todo => todo.completed)
     if (atLeastOneCompleted) {
-      this.props.actions.clearCompleted()
+      this.props.actions.clearCompleted(this.props.todos)
     }
   }
 
@@ -30,12 +30,13 @@ class MainSection extends Component {
 
   renderToggleAll(completedCount) {
     const { todos, actions } = this.props
+    const allCompleted = completedCount === todos.length
     if (todos.length > 0) {
       return <input
         className={style.toggleAll}
         type="checkbox"
-        checked={completedCount === todos.length}
-        onChange={actions.completeAll} />
+        checked={allCompleted}
+        onChange={()=>actions.completeAll(todos, allCompleted)} />
     }
   }
 
@@ -63,7 +64,6 @@ class MainSection extends Component {
     const completedCount = todos.reduce((count, todo) => {
       return todo.completed ? count + 1 : count
     }, 0)
-
     return (
       <section className={style.main}>
         {this.renderToggleAll(completedCount)}

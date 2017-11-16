@@ -26,7 +26,7 @@ class TodoItem extends Component {
   }
 
   render() {
-    const {todo, completeTodo, deleteTodo} = this.props
+    const {todo, incompleteTodo, completeTodo, deleteTodo} = this.props
 
     let element
     if (this.state.editing) {
@@ -41,7 +41,7 @@ class TodoItem extends Component {
           <input className={style.toggle}
              type="checkbox"
              checked={todo.completed}
-             onChange={() => completeTodo(todo.id)} />
+             onChange={() => completeTodo(todo)} />
 
           <label onDoubleClick={::this.handleDoubleClick}>
             {todo.text}

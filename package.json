@@ -35,5 +35,15 @@
     "react-router-redux": "^4.0.0",
     "redux": "^3.3.1",
     "redux-actions": "^0.9.1"
+  },
+  "dependencies": {
+    "erschema": "^1.1.2",
+    "erschema-actions": "^1.0.5",
+    "erschema-redux-immutable": "^1.0.22",
+    "erschema-selectors": "^1.0.4",
+    "redux-batched-actions": "^0.1.6",
+    "redux-compose-hors": "^1.0.0",
+    "redux-retype-actions": "^1.0.5",
+    "redux-thunk": "^2.2.0"
   }
 }
